@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,13 @@ namespace SecondQuarterlyAssessment
         public MainWindow()
         {
             InitializeComponent();
+            var url = "http://newsapi.org/v2/top-headlines?" +
+                        "country=us&" +
+                        "apiKey=b0466442aab542808657f3409b506e56";
+
+            var json = new WebClient().DownloadString(url);
+
+            Console.WriteLine(json);
         }
     }
 }
